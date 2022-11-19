@@ -13,12 +13,35 @@ O=======================================================================O
 
 
 /*------------------------------< Structs >------------------------------*/
+typedef struct{
+    char rua[128];
+    char bairro[128];
+    int numero;
+    int cep;
+}address;
 
 
+typedef struct NO{//Desculpa professor, mas doia muito no coração colocar o tamanho das strings como 100 e 50... colocamos números que estão na base 2 (2^7 e 2^6);
+    //Dados obrigatórios da atividade
+    int id;
+    char nome[128];
+    char tipo;
+    char usuario[64];
+    char senha[64];
+    address endereco;
 
-/*printf("TÃ´ testando o commit :D")*/
+    //variável de verificação
+    int isOnFile;
+
+    //Ponteiro que aponta para o endereço do próximo nó.
+    struct NO *proximo;
+}no;
 
 
+typedef struct{
+    no *inicio;
+    no *fim;
+}lista;
 
 
 /*------------------------------< Functions >------------------------------*/
