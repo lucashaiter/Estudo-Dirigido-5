@@ -23,7 +23,7 @@ typedef struct{
 typedef struct{
     // Dados obrigatórios da atividade
     int id;
-    char nome[128];
+    char nome[128]; // Desculpa professor, mas doia muito no coração colocar o tamanho das strings como 100 e 50... colocamos números que estão na base 2 (2^7==128 e 2^6==64).
     char usuario[64];
     char senha[64];
     char tipo;
@@ -32,7 +32,7 @@ typedef struct{
 
 
 // Estrutura de nó (node).
-typedef struct NODE{ // Desculpa professor, mas doia muito no coração colocar o tamanho das strings como 100 e 50... colocamos números que estão na base 2 (2^7 e 2^6).
+typedef struct NODE{
     // Estrutura do usuário
     user UserNode;
 
@@ -121,7 +121,7 @@ void printList(list *lista){
 
 
 // Limpar a lista (apenas no final do programa).
-int clearUPM(list *lista){//UPM == User in principal memory (abreviado para o nome da função não fica gigante :P).
+int clearUers(list *lista){
     if(lista == NULL || lista->inicio == NULL){ // Ou não há lista, ou a lista está vazia.
         return 0;
     }else{ // Há lista, e ela será limpa.
@@ -150,6 +150,8 @@ int main(){
     //Criando a lista e uma variável auxíliar de "resposta" (userAdd).
     list *Lista = CreateList();
     user userAdd;
+
+    
 
 
     system("pause");
