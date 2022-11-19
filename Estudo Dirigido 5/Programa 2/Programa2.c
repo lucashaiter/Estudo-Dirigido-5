@@ -95,7 +95,7 @@ void addUser(list *lista, user usuarioNode){
         NewUser->proximo = lista->inicio;
 
         // Verificando se a lista está vazia.
-        if(lista->inicio == NULL){ // Caso esteja, o primeiro elemento também será o último.
+        if(lista->inicio == NULL){ // Caso esteja vazia, o primeiro elemento também será o último.
             lista->fim = NewUser;
         }
         lista->inicio = NewUser;
@@ -120,14 +120,36 @@ void printList(list *lista){
 }
 
 
+// Limpar a lista (apenas no final do programa).
+int clearUPM(list *lista){//UPM == User in principal memory (abreviado para o nome da função não fica gigante :P).
+    if(lista == NULL || lista->inicio == NULL){ // Ou não há lista, ou a lista está vazia.
+        return 0;
+    }else{ // Há lista, e ela será limpa.
+    node *atualUser;
 
+    //enquanto o inicio da lista apontar para um nó
+    while(lista->inicio != NULL){
+            //recupera o primeiro elemento da lista
+            atualUser = lista->inicio;
+
+            //faz com que o próximo elemento seja o primeiro elemento da lista;
+            lista->inicio = atualUser->proximo;
+
+            //remove o nodo da lista
+            free(atualUser);
+    }
+    //libera a memória da variável que representa a lista
+    free(lista);
+    }
+    return 1;
+}
 /*------------------------------< Main >------------------------------*/
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    //Criando a lista e uma variável auxíliar de "resposta".
+    //Criando a lista e uma variável auxíliar de "resposta" (userAdd).
     list *Lista = CreateList();
-    user UserAdd;
+    user userAdd;
 
 
     system("pause");
