@@ -120,7 +120,7 @@ void printList(list *lista){
 }
 
 
-// Limpar a lista (apenas no final do programa).
+// Limpar a lista (apenas no final do programa).a
 int clearUers(list *lista){
     if(lista == NULL || lista->inicio == NULL){ // Ou não há lista, ou a lista está vazia.
         return 0;
